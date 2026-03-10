@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio52: Grid</title>
+
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* primera mitad que la segunda */
+        grid-template-rows: auto 200px 200px;
+        gap: 2px;
+      }
+
+      .celda {
+        background: #334243;
+        padding: 10px;
+      }
+
+      /* Grid anidado */
+      .grid-anidado {
+        display: grid;
+        grid-template-columns: 1fr; /* una columna */
+        gap: 5px;
+      }
+
+      .grid-anidado div {
+        background: lightgreen;
+        padding: 10px;
+        grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="celda">Celda 1</div>
+      <div class="celda">Celda 2</div>
+
+      <div class="celda">Celda 3</div>
+
+      <div class="celda">
+        <div class="grid-anidado">
+          <div>Celda 4 (Grid anidado)</div>
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

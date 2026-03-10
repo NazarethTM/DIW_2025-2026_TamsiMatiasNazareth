@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuesta de Satisfacción</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 25px 35px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 450px;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="date"],
+      input[type="color"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus,
+      input[type="date"]:focus,
+      input[type="color"]:focus,
+      textarea:focus {
+        border-color: #4caf50;
+        outline: none;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 10px 0;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 8px;
+      }
+
+      .range-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        padding: 10px 15px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        margin-right: 10px;
+      }
+
+      input[type="reset"] {
+        background-color: #f44336;
+        color: white;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      input[type="reset"]:hover {
+        background-color: #e53935;
+      }
+
+      @media (max-width: 480px) {
+        form {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Encuesta de Satisfacción</h1>
+
+    <form action="encuesta.php" method="POST">
+      <!-- Información básica -->
+      <fieldset>
+        <legend>
+          <h1>Datos personales</h1>
+        </legend>
+
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          placeholder="Tu nombre completo"
+        />
+
+        <label for="edad">Edad:</label>
+        <input
+          type="number"
+          id="edad"
+          name="edad"
+          required
+          min="18"
+          max="100"
+          placeholder="18-100"
+        />
+
+        <label for="fecha">Fecha de visita:</label>
+        <input type="date" id="fecha" name="fecha" required />
+      </fieldset>
+
+      <!-- Calificación -->
+      <fieldset>
+        <legend>Calificación</legend>
+        <label for="calificacion">Calificación general:</label>
+        <div class="range-container">
+          <input
+            type="range"
+            id="calificacion"
+            name="calificacion"
+            min="1"
+            max="10"
+            value="5"
+            oninput="valorCal.value = calificacion.value"
+          />
+          <output id="valorCal">5</output>
+        </div>
+      </fieldset>
+
+      <!-- Servicios utilizados -->
+      <fieldset>
+        <legend>Servicios utilizados</legend>
+        <label
+          ><input type="checkbox" name="servicios[]" value="restaurante" />
+          Restaurante</label
+        >
+        <label
+          ><input type="checkbox" name="servicios[]" value="spa" /> Spa</label
+        >
+        <label
+          ><input type="checkbox" name="servicios[]" value="gimnasio" />
+          Gimnasio</label
+        >
+        <label
+          ><input type="checkbox" name="servicios[]" value="piscina" />
+          Piscina</label
+        >
+      </fieldset>
+
+      <!-- Comentarios y color favorito -->
+      <fieldset>
+        <legend>Comentarios y preferencias</legend>
+        <label for="comentarios">Comentarios adicionales:</label>
+        <textarea
+          id="comentarios"
+          name="comentarios"
+          placeholder="Escribe tus comentarios..."
+        ></textarea>
+
+        <label for="color">Color favorito:</label>
+        <input type="color" id="color" name="color" />
+      </fieldset>
+
+      <input type="submit" value="Enviar" />
+      <input type="reset" value="Restablecer" />
+    </form>
+
+    <!--
+    <script>
+      // Actualiza el valor del output dinámicamente
+      const calificacion = document.getElementById("calificacion");
+      const valorCal = document.getElementById("valorCal");
+      calificacion.addEventListener("input", () => {
+        valorCal.value = calificacion.value;
+      });
+    </script>
+    -->
+  </body>
+</html>
