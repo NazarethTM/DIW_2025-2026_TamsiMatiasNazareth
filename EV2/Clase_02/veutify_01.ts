@@ -1,0 +1,4 @@
+
+type coordenadas = [number, number];
+
+  
