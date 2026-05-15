@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forbes India - Ejercicio Bootstrap</title>
+
+    <!-- Bootstrap 5.3 CSS desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #fff;
+        }
+
+        /* Navbar negra estilo Forbes */
+        .navbar-forbes {
+            background-color: #000;
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+        }
+
+        .navbar-forbes .navbar-brand {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: #fff !important;
+            position: relative;
+        }
+
+        /* Etiqueta "INDIA" sobre el logo */
+        .brand-india {
+            display: inline-block;
+            color: #fff;
+            font-size: 0.55rem;
+            padding: 1px 5px;
+            font-style: normal;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            vertical-align: top;
+            margin-left: 2px;
+            letter-spacing: 1px;
+        }
+
+        .navbar-forbes .nav-link {
+            color: #fff !important;
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0.6rem !important;
+        }
+
+        .navbar-forbes .nav-link:hover {
+            color: #d80000 !important;
+        }
+
+        .nav-link-subscribe {
+            color: #d80000 !important;
+        }
+
+        /* Botón JOIN verde con icono de WhatsApp */
+        .btn-join {
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 20px;
+            padding: 3px 14px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: none;
+        }
+
+        .btn-join:hover {
+            background-color: #1ebe57;
+            color: #fff;
+        }
+
+        /* Categorías de los artículos */
+        .article-category {
+            color: #d80000;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #000;
+            line-height: 1.3;
+        }
+
+        .article-title a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .article-title a:hover {
+            color: #d80000;
+        }
+
+        .article-author {
+            font-size: 0.75rem;
+            color: #555;
+            font-style: italic;
+            margin-top: 6px;
+        }
+
+        /* Badge categoría sobre la imagen */
+        .badge-category {
+            background-color: #2a6f5a;
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 0;
+        }
+
+        .badge-category-light {
+            background-color: #a8d8c8;
+            color: #2a6f5a;
+        }
+
+        /* Tarjetas inferiores */
+        .card-bottom {
+            border: none;
+        }
+
+        .card-bottom .card-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .card-bottom .card-text {
+            font-size: 0.8rem;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .read-more {
+            color: #d80000;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        /* Anuncio lateral */
+        .ad-box {
+            background: linear-gradient(135deg, #1a1a3a 0%, #2c2c5c 100%);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .magazine-cover {
+            background-color: #f7c548;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .btn-buy {
+            background-color: #d80000;
+            color: #fff;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto;
+            font-weight: bold;
+            font-size: 0.85rem;
+            line-height: 1;
+            flex-direction: column;
+        }
+
+        /* Carrusel */
+        .carousel-caption-custom {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            text-align: left;
+        }
+
+        .carousel-tag {
+            display: inline-block;
+            background-color: #b39ddb;
+            color: #4a148c;
+            font-size: 0.65rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            margin-bottom: 8px;
+        }
+
+        .carousel-tag-orange {
+            background-color: #ffcc80;
+            color: #5d4037;
+        }
+
+        .carousel-title {
+            font-family: Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        /* Línea divisoria */
+        .seccion-divisoria {
+            border-top: 1px solid #ddd;
+            margin: 25px 0;
+        }
+
+        /* Subscribe text */
+        .subscribe-text {
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .subscribe-small {
+            font-size: 0.7rem;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!--  NAVBAR  -->
+    <!-- Barra de navegación negra anclada arriba (sticky-top) -->
+    <nav class="navbar navbar-expand-lg navbar-forbes sticky-top">
+        <div class="container-fluid px-4">
+
+            <!-- Botón hamburguesa (a la izquierda en la maqueta) -->
+            <button class="navbar-toggler border-0 me-2" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
+                    aria-controls="menuLateral">
+                <i class="bi bi-list text-white fs-3"></i>
+            </button>
+
+            <!-- Marca: Forbes + etiqueta INDIA -->
+            <a class="navbar-brand" href="#">
+                Forbes<span class="brand-india">INDIA</span>
+            </a>
+
+            <!-- Items del menú principal -->
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            LEADERSHIP
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">CEOs</a></li>
+                            <li><a class="dropdown-item" href="#">Management</a></li>
+                            <li><a class="dropdown-item" href="#">Strategy</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">INNOVATION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BILLIONAIRES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">LISTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">STARTUPS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            PODCASTS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Business</a></li>
+                            <li><a class="dropdown-item" href="#">Technology</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            VIDEOS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Interviews</a></li>
+                            <li><a class="dropdown-item" href="#">Documentaries</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">LIFE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-subscribe" href="#">SUBSCRIBE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">LOG IN</a>
+                    </li>
+                </ul>
+
+                <!-- Botón JOIN (estilo WhatsApp) + icono de búsqueda -->
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-join me-3">
+                        <i class="bi bi-whatsapp"></i> JOIN
+                    </button>
+                    <a href="#" class="text-white"><i class="bi bi-search"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--  MENÚ OFFCANVAS LATERAL  ============ -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral">
+        <div class="offcanvas-header bg-dark text-white">
+            <h5 class="offcanvas-title">Menú</h5>
+            <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Leadership</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Innovation</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Billionaires</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Lists</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Startups</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--  CONTENIDO PRINCIPAL  -->
+    <div class="container my-4">
+        <div class="row g-4">
+
+            <!-- ====== COLUMNA IZQUIERDA: CARRUSEL ====== -->
+            <div class="col-12 col-lg-5">
+                <div id="carruselForbes" class="carousel slide" data-bs-ride="carousel">
+
+                    <!-- Diapositivas -->
+                    <div class="carousel-inner">
+                        <!-- Slide 1: Budget 2025 (imagen real que ya contiene foto + escalera) -->
+                        <div class="carousel-item active">
+                            <img src="carrusel_budget.png"
+                                 class="d-block w-100" alt="Budget 2025">
+                            <div class="carousel-caption-custom">
+                                <span class="carousel-tag">TAKE ONE: BIG STORY OF THE DAY</span>
+                                <h5 class="carousel-title">
+                                    Budget 2025: Focus on growth and fiscal consolidation
+                                </h5>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Harvard Business School -->
+                        <div class="carousel-item">
+                            <img src="carrusel.png"
+                                 class="d-block w-100" alt="Harvard Business School">
+                            <div class="carousel-caption-custom">
+                                <span class="carousel-tag carousel-tag-orange">HARVARD BUSINESS SCHOOL</span>
+                                <h5 class="carousel-title">
+                                    What drives talent to sabotage their own careers
+                                </h5>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: extra para que el carrusel tenga más contenido -->
+                        <div class="carousel-item">
+                            <img src="carrusel_extra.png"
+                                 class="d-block w-100" alt="Extra slide">
+                            <div class="carousel-caption-custom">
+                                <span class="carousel-tag">FORBES TECH</span>
+                                <h5 class="carousel-title">
+                                    The future of AI in 2025
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators" style="bottom: -30px;">
+                        <button type="button" data-bs-target="#carruselForbes"
+                                data-bs-slide-to="0" class="active bg-secondary"></button>
+                        <button type="button" data-bs-target="#carruselForbes"
+                                data-bs-slide-to="1" class="bg-danger"></button>
+                        <button type="button" data-bs-target="#carruselForbes"
+                                data-bs-slide-to="2" class="bg-secondary"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  COLUMNA CENTRAL: LISTA DE ARTÍCULOS  -->
+            <div class="col-12 col-lg-4">
+
+                <!-- Artículo 1 -->
+                <article class="mb-3">
+                    <div class="article-category">LIFE</div>
+                    <h6 class="article-title">
+                        <a href="#">Backstage with Sabyasachi at 25: On the prowl for global markets</a>
+                    </h6>
+                    <p class="article-author">By Pankti Mehta Kadakia</p>
+                </article>
+
+                <!-- Artículo 2 -->
+                <article class="mb-3">
+                    <div class="article-category">LEADERSHIP</div>
+                    <h6 class="article-title">
+                        <a href="#">Change can come only if we break stereotypes around caregiving: Tara Singh Vachani</a>
+                    </h6>
+                    <p class="article-author">By Anitha Moosath</p>
+                </article>
+
+                <!-- Artículo 3 -->
+                <article class="mb-3">
+                    <div class="article-category">SHOWSTOPPERS</div>
+                    <h6 class="article-title">
+                        <a href="#">'I was never really serious about music, until...': Hanumankind</a>
+                    </h6>
+                    <p class="article-author">By Naini Thaker, Manisha Isa Dass</p>
+                </article>
+
+                <!-- Artículo 4 -->
+                <article class="mb-3">
+                    <div class="article-category">FORBES INDIA TECH CONVERSATIONS</div>
+                    <h6 class="article-title">
+                        <a href="#">Accel's Anand Daniel and Prayank Swaroop on the next decade of Indian startups</a>
+                    </h6>
+                    <p class="article-author">By Harichandan Arakali</p>
+                </article>
+            </div>
+
+            <!--  COLUMNA DERECHA: ANUNCIOS Y SUSCRIPCIÓN  -->
+            <div class="col-12 col-lg-3">
+
+                <!-- Anuncio 1 -->
+                <img src="anuncio_changemakers.png"
+                     alt="Forbes Hilton Change Makers"
+                     class="img-fluid mb-4 w-100">
+
+                <!-- Anuncio 2 -->
+                <img src="revista_forbes.png"
+                     alt="Portada revista Forbes India - Riding for the Brand"
+                     class="img-fluid w-100">
+
+                <p class="subscribe-text mt-3">
+                    Subscribe today and save upto<br>76% off the cover price.
+                </p>
+                <p class="subscribe-small">
+                    All Access + Weekly Delivery.<br>
+                    Both the print magazine and full digital access.
+                </p>
+            </div>
+        </div>
+
+        <!-- Línea divisoria entre las dos secciones -->
+        <hr class="seccion-divisoria">
+
+        <!--  SECCIÓN INFERIOR: 4 TARJETAS DE ARTÍCULOS  -->
+        <div class="row g-4">
+
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card card-bottom">
+                    <span class="badge-category mb-2 align-self-start">LIFE</span>
+                    <div class="card-body p-0">
+                        <h6 class="card-title">DeepSeek: Chinese AI firm making waves in Silicon Valley</h6>
+                        <p class="article-author">By AFPRelaxnews</p>
+                        <p class="card-text">
+                            The programme has shaken up the tech industry and hit US titans, inclu
+                            <a href="#" class="read-more">Read more...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card card-bottom">
+                    <span class="badge-category mb-2 align-self-start">LIFE</span>
+                    <div class="card-body p-0">
+                        <h6 class="card-title">Paris Haute Couture Week: Designer Julien Fournie turns 50, brimming with ideas</h6>
+                        <p class="article-author">By AFPRelaxnews</p>
+                        <p class="card-text">
+                            In a sector that has become more subdued following the loss of icons I
+                            <a href="#" class="read-more">Read more...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card card-bottom">
+                    <span class="badge-category badge-category-light mb-2 align-self-start">2025 INVESTMENT SPECIAL</span>
+                    <div class="card-body p-0">
+                        <h6 class="card-title">Mutual Fund strategy for 2025: Don't bet on mediocre companies</h6>
+                        <p class="article-author">By Anish Tawakley</p>
+                        <p class="card-text">
+                            Valuation discipline is fundamental to long-term wealth creation. In a
+                            <a href="#" class="read-more">Read more...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card card-bottom">
+                    <span class="badge-category mb-2 align-self-start">INSEAD</span>
+                    <div class="card-body p-0">
+                        <h6 class="card-title">The art of delegation</h6>
+                        <p class="article-author">By INSEAD</p>
+                        <p class="card-text">
+                            A framework for developing this critical leadership skill
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
