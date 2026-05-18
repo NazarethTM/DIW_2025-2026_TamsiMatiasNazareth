@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20 - Botones Estilizados</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+
+        /* Botón 1: Efecto Hover con Cambio de Color de Fondo */
+        .boton1 {
+            background-color: rgb(100, 150, 200);
+            color: hsl(120, 100%, 40%);
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton1:hover {
+            background-color: #ff6b6b;
+        }
+
+        /* Botón 2: Fondo con Imagen y Ajuste de Tamaño */
+        .boton2 {
+            background-image: url('https://placehold.co/100x50');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: black;
+            border: none;
+            padding: 15px 60px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .boton2:hover {
+            transform: scale(1.05);
+        }
+
+        /* Botón 3: Degradado y Transparencia */
+        .boton3 {
+            background: linear-gradient(45deg, rgba(255, 100, 50, 0.8), hsla(240, 100%, 50%, 0.9));
+            color: yellow;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .boton3:hover {
+            opacity: 0.9;
+        }
+
+        /* Contenedor para mejor presentación */
+        .contenedor-botones {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-botones">
+        <button class="boton1">Botón 1</button>
+        <button class="boton2">Botón 2</button>
+        <button class="boton3">Botón 3</button>
+    </div>
+</body>
+</html>

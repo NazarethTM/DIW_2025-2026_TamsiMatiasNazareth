@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        header {
+            margin: 0px;
+            color: white;
+            margin-bottom: 40px;
+            margin: 0%;
+            background-color: #0066ff;
+            padding: 10px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: black;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #0066ff;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #0066ff;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .seccion {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .links a {
+            display: inline-block;
+            margin-right: 20px;
+            text-decoration: none;
+            color: #0066ff;
+            font-weight: bold;
+        }
+
+        .links a:hover {
+            color: #004ecc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bienvenido a Nuestra Landing Page</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="seccion">
+        <h2>Introducción</h2>
+        <p>Esta es una página de inicio simple con enlaces a secciones ficticias y estilos animados.</p>
+    </section>
+
+    <section class="links">
+        <a href="#">Sección A</a>
+        <a href="#">Sección B</a>
+        <a href="#">Sección C</a>
+    </section>
+
+</body>
+</html>

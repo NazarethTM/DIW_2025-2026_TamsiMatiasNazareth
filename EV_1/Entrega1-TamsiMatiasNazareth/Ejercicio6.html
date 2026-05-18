@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 6</title>
+
+    <style>
+      body {
+        margin: 40px;
+      }
+
+      .cambiar {
+        display: none;
+      }
+
+      .boton {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0066ff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      .boton:hover {
+        background-color: #004ecc;
+      }
+
+      .caja {
+        padding: 20px;
+        background-color: white;
+        color: black;
+        border-radius: 6px;
+        transition: 0.3s;
+      }
+
+      .cambiar:checked + .caja {
+        background-color: #222;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <div class="caja">
+        <h1>Tema Claro y Oscuro</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ex vero
+          reiciendis temporibus odit corrupti voluptatem velit beatae ut
+          architecto, quasi, delectus fugiat maiores omnis aspernatur excepturi
+          saepe enim numquam?.
+        </p>
+        <input type="checkbox" class="cambiar" id="switch" />
+        <label for="switch" class="boton">Cambiar Tema</label>
+      </div>
+    </div>
+  </body>
+</html>

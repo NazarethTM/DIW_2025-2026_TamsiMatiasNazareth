@@ -1,0 +1,5 @@
+node_modules/
+dist/
+*.zip
+
+Examen1EV_TamsiNazareth/**/Bootstrap 5.3.8/

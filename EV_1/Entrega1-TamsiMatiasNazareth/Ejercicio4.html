@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+
+    <style>
+        body {
+            margin: 40px;
+        }
+
+        form {
+            width: 380px;
+        }
+
+        label {
+            display: inline-block;
+            width: 110px;
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            width: 240px;
+            padding: 6px;
+            border: 1px solid blue;
+            border-radius: 4px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #0066ff;
+            outline: none;
+        }
+
+        input:invalid, textarea:invalid {
+            border-color: grey;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004ecc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Formulario de Contacto</h2>
+
+    <form>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" name="nombre" type="text" required>
+        </div>
+
+        <div>
+            <label for="correo">Correo:</label>
+            <input id="correo" name="correo" type="email" required>
+        </div>
+
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input id="telefono" name="telefono" type="text" pattern="[0-9]+" required>
+        </div>
+
+        <div>
+            <label for="comentarios">Comentarios:</label>
+            <textarea id="comentarios" name="comentarios" required></textarea>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
