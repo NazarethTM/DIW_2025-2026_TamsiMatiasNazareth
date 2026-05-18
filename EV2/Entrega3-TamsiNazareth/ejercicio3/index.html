@@ -1,0 +1,1532 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Diario - Periódico digital de actualidad</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts: tipografías estilo periódico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--  ESTILOS PERSONALIZADOS  -->
+    <style>
+      :root {
+        --color-rojo: #b8121e;
+        --color-negro: #1a1a1a;
+        --color-gris-texto: #555;
+        --color-gris-claro: #f4f1ec;
+        --color-crema: #faf7f2;
+      }
+
+      body {
+        font-family: "Source Sans 3", sans-serif;
+        background-color: var(--color-crema);
+        color: var(--color-negro);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .titulo-serif {
+        font-family: "Playfair Display", serif;
+      }
+
+      /*  BARRA SUPERIOR (fecha y edición)  */
+      .top-bar {
+        background-color: var(--color-negro);
+        color: #ccc;
+        font-size: 0.75rem;
+        padding: 6px 0;
+        font-family: "Source Sans 3", sans-serif;
+        letter-spacing: 0.5px;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar-diario {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        border-top: 3px solid var(--color-rojo);
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+      }
+
+      .navbar-diario .marca {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: 2rem;
+        color: var(--color-negro);
+        text-decoration: none;
+        letter-spacing: -1px;
+      }
+
+      .navbar-diario .marca .articulo {
+        color: var(--color-rojo);
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .navbar-diario .nav-link {
+        color: var(--color-negro) !important;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.4rem 0.9rem !important;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s;
+      }
+
+      .navbar-diario .nav-link:hover {
+        color: var(--color-rojo) !important;
+        border-bottom-color: var(--color-rojo);
+      }
+
+      .navbar-diario .nav-link.disabled {
+        color: #aaa !important;
+        cursor: not-allowed;
+      }
+
+      /* Botones del navbar */
+      .btn-login {
+        background-color: transparent;
+        color: var(--color-negro);
+        border: 1.5px solid var(--color-negro);
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 5px 14px;
+        border-radius: 0;
+      }
+
+      .btn-login:hover {
+        background-color: var(--color-negro);
+        color: #fff;
+      }
+
+      .btn-alta {
+        background-color: var(--color-rojo);
+        color: #fff;
+        border: 1.5px solid var(--color-rojo);
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 5px 14px;
+        border-radius: 0;
+      }
+
+      .btn-alta:hover {
+        background-color: #8a0d16;
+        border-color: #8a0d16;
+        color: #fff;
+      }
+
+      /* Formulario de búsqueda */
+      .form-busqueda .form-control {
+        border-radius: 0;
+        border: 1px solid #ddd;
+        font-size: 0.9rem;
+      }
+
+      .form-busqueda .btn {
+        border-radius: 0;
+        background-color: var(--color-negro);
+        color: #fff;
+        border: 1px solid var(--color-negro);
+      }
+
+      /*  CARRUSEL HERO  */
+      .hero-carrusel {
+        margin-top: 20px;
+      }
+
+      .hero-carrusel .carousel-item {
+        height: 480px;
+        background-color: #000;
+      }
+
+      .hero-carrusel .carousel-item img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        opacity: 0.7;
+      }
+
+      .hero-carrusel .carousel-caption {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: left;
+        padding: 30px 40px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+      }
+
+      .hero-carrusel .carousel-caption h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.15;
+        max-width: 800px;
+      }
+
+      .hero-carrusel .carousel-caption p {
+        font-size: 1.05rem;
+        max-width: 700px;
+        color: #eee;
+      }
+
+      .badge-categoria {
+        background-color: var(--color-rojo);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        padding: 5px 12px;
+        text-transform: uppercase;
+        border-radius: 0;
+      }
+
+      .badge-categoria-oscura {
+        background-color: var(--color-negro);
+      }
+
+      /*  TÍTULOS DE SECCIÓN  */
+      .titulo-seccion {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.6rem;
+        border-bottom: 3px solid var(--color-rojo);
+        padding-bottom: 6px;
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .titulo-seccion::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--color-negro);
+      }
+
+      /* ===== CARDS DE NOTICIAS ===== */
+      .card-noticia {
+        border: none;
+        background-color: transparent;
+        transition: transform 0.2s;
+      }
+
+      .card-noticia:hover {
+        transform: translateY(-3px);
+      }
+
+      .card-noticia img {
+        object-fit: cover;
+        height: 180px;
+      }
+
+      .card-noticia .card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-top: 10px;
+      }
+
+      .card-noticia .card-title a {
+        color: var(--color-negro);
+        text-decoration: none;
+      }
+
+      .card-noticia .card-title a:hover {
+        color: var(--color-rojo);
+      }
+
+      .card-noticia .meta {
+        font-size: 0.8rem;
+        color: var(--color-gris-texto);
+        margin-top: 8px;
+      }
+
+      /* Card horizontal (con imagen al lado) */
+      .card-horizontal img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-horizontal .card-body {
+        padding: 0 15px;
+      }
+
+      .card-horizontal .card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      /* ===== SIDEBAR ===== */
+      .sidebar-card {
+        background-color: #fff;
+        border: 1px solid #e8e3da;
+        padding: 20px;
+        margin-bottom: 25px;
+      }
+
+      .sidebar-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-bottom: 2px solid var(--color-negro);
+        padding-bottom: 6px;
+        margin-bottom: 15px;
+      }
+
+      .lista-leido .list-group-item {
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 12px 0;
+        background-color: transparent;
+        font-family: "Playfair Display", serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      .lista-leido .list-group-item:last-child {
+        border-bottom: none;
+      }
+
+      .num-leido {
+        display: inline-block;
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--color-rojo);
+        font-style: italic;
+        margin-right: 10px;
+        min-width: 30px;
+      }
+
+      /* ===== TABS DE SECCIONES ===== */
+      .nav-tabs-diario {
+        border-bottom: 2px solid var(--color-negro);
+      }
+
+      .nav-tabs-diario .nav-link {
+        border: none;
+        border-radius: 0;
+        color: var(--color-negro);
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 8px 18px;
+        background-color: transparent;
+      }
+
+      .nav-tabs-diario .nav-link.active {
+        background-color: var(--color-negro);
+        color: #fff;
+        border: none;
+      }
+
+      .nav-tabs-diario .nav-link:hover:not(.active) {
+        color: var(--color-rojo);
+      }
+
+      /*  ALERT NEWSLETTER  */
+      .alert-newsletter {
+        background-color: var(--color-negro);
+        color: #fff;
+        border: none;
+        border-radius: 0;
+        padding: 25px;
+      }
+
+      .alert-newsletter h5 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      /*  PAGINACIÓN  */
+      .pagination .page-link {
+        color: var(--color-negro);
+        border-radius: 0;
+        font-weight: 600;
+      }
+
+      .pagination .page-item.active .page-link {
+        background-color: var(--color-negro);
+        border-color: var(--color-negro);
+        color: #fff;
+      }
+
+      /*  FOOTER  */
+      footer {
+        background-color: var(--color-negro);
+        color: #ccc;
+        padding: 40px 0 20px;
+        margin-top: 50px;
+      }
+
+      footer h6 {
+        color: #fff;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      footer a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+        padding: 3px 0;
+      }
+
+      footer a:hover {
+        color: var(--color-rojo);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #444;
+        padding-top: 20px;
+        margin-top: 30px;
+        font-size: 0.8rem;
+      }
+
+      /* Iconos de redes con tooltip */
+      .icono-red {
+        color: #ccc;
+        font-size: 1.2rem;
+        margin-right: 12px;
+        transition: color 0.2s;
+      }
+
+      .icono-red:hover {
+        color: var(--color-rojo);
+      }
+
+      /* Imagen de portada del carrusel - efecto cinta */
+      .carousel-tag-hero {
+        background-color: var(--color-rojo);
+        color: #fff;
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        padding: 6px 12px;
+        display: inline-block;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+
+      /* Card destacada (primera del bloque última hora) */
+      .card-destacada {
+        position: relative;
+      }
+
+      .card-destacada img {
+        height: 380px !important;
+      }
+
+      .card-destacada .card-title {
+        font-size: 1.8rem !important;
+      }
+
+      /* Responsive: ocultar la barra superior en móvil */
+      @media (max-width: 576px) {
+        .top-bar {
+          font-size: 0.7rem;
+        }
+        .hero-carrusel .carousel-item {
+          height: 350px;
+        }
+        .hero-carrusel .carousel-caption h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- BARRA SUPERIOR: fecha y edición              -->
+    <div class="top-bar">
+      <div class="container d-flex justify-content-between align-items-center">
+        <span>
+          <i class="bi bi-calendar3"></i>
+          Viernes, 15 de mayo de 2026 &middot; Edición digital
+        </span>
+        <span class="d-none d-md-block">
+          <i class="bi bi-cloud-sun"></i> Madrid 22ºC
+          <span class="ms-3"
+            ><i class="bi bi-newspaper"></i> Año XII &middot; Nº 4.328</span
+          >
+        </span>
+      </div>
+    </div>
+
+    <!-- APARTADO A: BARRA DE NAVEGACIÓN              -->
+    <nav class="navbar navbar-expand-lg navbar-diario sticky-top">
+      <div class="container">
+        <!-- Marca: imagen + texto -->
+        <a
+          class="navbar-brand marca d-flex align-items-center"
+          href="index.html"
+        >
+          <i
+            class="bi bi-newspaper text-danger me-2"
+            style="font-size: 2rem"
+          ></i>
+          El <span class="articulo">Diario</span>
+        </a>
+
+        <!-- Botón hamburguesa para colapsar en pantallas pequeñas -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarPrincipal"
+          aria-controls="navbarPrincipal"
+          aria-expanded="false"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenido colapsable del navbar -->
+        <div class="collapse navbar-collapse" id="navbarPrincipal">
+          <!-- Items principales del menú -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">
+                <i class="bi bi-house-door"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
+            </li>
+            <li class="nav-item">
+              <!-- Cuenta deshabilitada (porque el usuario no ha iniciado sesión) -->
+              <a
+                class="nav-link disabled"
+                aria-disabled="true"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Inicia sesión para acceder a tu cuenta"
+              >
+                Cuenta
+              </a>
+            </li>
+            <!-- Dropdown extra de secciones (componente extra) -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Secciones
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Política</a></li>
+                <li><a class="dropdown-item" href="#">Economía</a></li>
+                <li><a class="dropdown-item" href="#">Internacional</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Cultura</a></li>
+                <li><a class="dropdown-item" href="#">Deportes</a></li>
+                <li><a class="dropdown-item" href="#">Tecnología</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Formulario de búsqueda -->
+          <form class="d-flex form-busqueda me-lg-3 my-2 my-lg-0" role="search">
+            <input
+              class="form-control me-1"
+              type="search"
+              placeholder="Buscar noticias..."
+              aria-label="Buscar"
+            />
+            <button class="btn" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+
+          <!-- Botones Log in y Darse de alta (solo visibles a partir de sm) -->
+          <div class="d-none d-sm-flex gap-2">
+            <!-- Botón log in: abre el modal -->
+            <button
+              type="button"
+              class="btn btn-login"
+              data-bs-toggle="modal"
+              data-bs-target="#modalLogin"
+            >
+              <i class="bi bi-box-arrow-in-right"></i> Log in
+            </button>
+            <!-- Botón darse de alta: enlace a registro.html (apartado C) -->
+            <a href="registro.html" class="btn btn-alta">
+              <i class="bi bi-person-plus"></i> Darse de alta
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MODAL: formulario de Log in                  -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      aria-labelledby="modalLoginLabel"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 0">
+          <div
+            class="modal-header"
+            style="background-color: var(--color-negro); color: white"
+          >
+            <h5 class="modal-title titulo-serif" id="modalLoginLabel">
+              Iniciar sesión
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <form>
+              <!-- Campo correo -->
+              <div class="mb-3">
+                <label for="emailLogin" class="form-label fw-bold">
+                  Correo electrónico
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailLogin"
+                  placeholder="ejemplo@correo.com"
+                  required
+                />
+              </div>
+
+              <!-- Campo contraseña -->
+              <div class="mb-3">
+                <label for="passLogin" class="form-label fw-bold">
+                  Contraseña
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passLogin"
+                  placeholder="Tu contraseña"
+                  required
+                />
+              </div>
+
+              <!-- Checkbox recordarme -->
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="recordarme"
+                />
+                <label class="form-check-label" for="recordarme">
+                  Recordarme en este dispositivo
+                </label>
+              </div>
+
+              <!-- Botón enviar -->
+              <button type="submit" class="btn btn-alta w-100 mb-3">
+                Enviar
+              </button>
+
+              <!-- Enlace a creación de cuenta -->
+              <p class="text-center mb-0 small">
+                ¿Aún no tienes cuenta?
+                <a href="registro.html" class="text-danger fw-bold">
+                  Créala aquí
+                </a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APARTADO B: PÁGINA PRINCIPAL                 -->
+
+    <!-- Carrusel hero principal -->
+    <div class="container hero-carrusel">
+      <div
+        id="carruselHero"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carruselHero"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carruselHero"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carruselHero"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active" data-bs-interval="6000">
+            <img src="https://picsum.photos/id/1015/1200/500" alt="Noticia 1" />
+            <div class="carousel-caption">
+              <span class="carousel-tag-hero"
+                >Portada &middot; Internacional</span
+              >
+              <h2>
+                La cumbre del clima cierra con un acuerdo histórico sobre
+                emisiones
+              </h2>
+              <p>
+                Más de 190 países se comprometen a reducir el uso de
+                combustibles fósiles antes de 2035 tras dos semanas de intensas
+                negociaciones.
+              </p>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item" data-bs-interval="6000">
+            <img src="https://picsum.photos/id/1043/1200/500" alt="Noticia 2" />
+            <div class="carousel-caption">
+              <span class="carousel-tag-hero">Economía</span>
+              <h2>
+                El BCE mantiene los tipos y abre la puerta a una bajada en otoño
+              </h2>
+              <p>
+                Lagarde asegura que la inflación se está moderando antes de lo
+                previsto, mientras los mercados europeos reaccionan con subidas
+                generalizadas.
+              </p>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item" data-bs-interval="6000">
+            <img src="https://picsum.photos/id/1059/1200/500" alt="Noticia 3" />
+            <div class="carousel-caption">
+              <span class="carousel-tag-hero">Cultura</span>
+              <h2>
+                El Museo del Prado bate récord de visitantes en su 207º
+                aniversario
+              </h2>
+              <p>
+                La pinacoteca celebra el hito con una exposición temporal que
+                reúne obras nunca antes vistas en España.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles anterior / siguiente -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carruselHero"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carruselHero"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Breadcrumb (migas de pan) -->
+    <div class="container mt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html" class="text-dark">Inicio</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Portada del día
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <!--  SECCIÓN: ÚLTIMA HORA  -->
+    <section class="container mb-5">
+      <h2 class="titulo-seccion">Última hora</h2>
+
+      <div class="row g-4">
+        <!-- Noticia 1 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="card-noticia">
+            <img
+              src="https://picsum.photos/id/237/400/250"
+              class="card-img-top"
+              alt="Noticia"
+            />
+            <span class="badge badge-categoria mt-3">Política</span>
+            <h5 class="card-title">
+              <a href="#"
+                >El Congreso aprueba la nueva ley de vivienda con el rechazo de
+                la oposición</a
+              >
+            </h5>
+            <p class="meta">
+              <i class="bi bi-clock"></i> Hace 12 min &middot;
+              <i class="bi bi-person"></i> Marta Rodríguez
+            </p>
+          </article>
+        </div>
+
+        <!-- Noticia 2 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="card-noticia">
+            <img
+              src="https://picsum.photos/id/180/400/250"
+              class="card-img-top"
+              alt="Noticia"
+            />
+            <span class="badge badge-categoria badge-categoria-oscura mt-3"
+              >Tecnología</span
+            >
+            <h5 class="card-title">
+              <a href="#"
+                >La Unión Europea anuncia nuevas restricciones para los modelos
+                de IA generativa</a
+              >
+            </h5>
+            <p class="meta">
+              <i class="bi bi-clock"></i> Hace 38 min &middot;
+              <i class="bi bi-person"></i> Carlos Ruiz
+            </p>
+          </article>
+        </div>
+
+        <!-- Noticia 3 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="card-noticia">
+            <img
+              src="https://picsum.photos/id/292/400/250"
+              class="card-img-top"
+              alt="Noticia"
+            />
+            <span class="badge badge-categoria mt-3">Deportes</span>
+            <h5 class="card-title">
+              <a href="#"
+                >El Real Madrid asegura el título de Liga a tres jornadas del
+                final</a
+              >
+            </h5>
+            <p class="meta">
+              <i class="bi bi-clock"></i> Hace 1 h &middot;
+              <i class="bi bi-person"></i> Pablo Sánchez
+            </p>
+          </article>
+        </div>
+
+        <!-- Noticia 4 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="card-noticia">
+            <img
+              src="https://picsum.photos/id/64/400/250"
+              class="card-img-top"
+              alt="Noticia"
+            />
+            <span class="badge badge-categoria badge-categoria-oscura mt-3"
+              >Sociedad</span
+            >
+            <h5 class="card-title">
+              <a href="#"
+                >Madrid estrena el primer carril bici subterráneo de Europa este
+                verano</a
+              >
+            </h5>
+            <p class="meta">
+              <i class="bi bi-clock"></i> Hace 2 h &middot;
+              <i class="bi bi-person"></i> Lucía Gómez
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--  LAYOUT PRINCIPAL: 2 COLUMNAS  -->
+    <section class="container mb-5">
+      <div class="row g-5">
+        <!-- ===== COLUMNA PRINCIPAL  -->
+        <div class="col-12 col-lg-8">
+          <h2 class="titulo-seccion">Lo más destacado</h2>
+
+          <!-- Tabs por sección (componente nav-tabs) -->
+          <ul
+            class="nav nav-tabs nav-tabs-diario mb-4"
+            id="tabsSecciones"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                data-bs-toggle="tab"
+                data-bs-target="#tab-politica"
+                type="button"
+              >
+                Política
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#tab-economia"
+                type="button"
+              >
+                Economía
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#tab-cultura"
+                type="button"
+              >
+                Cultura
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#tab-deportes"
+                type="button"
+              >
+                Deportes
+              </button>
+            </li>
+          </ul>
+
+          <!-- Contenido de las tabs -->
+          <div class="tab-content">
+            <!-- Tab Política -->
+            <div
+              class="tab-pane fade show active"
+              id="tab-politica"
+              role="tabpanel"
+            >
+              <!-- Card horizontal 1 -->
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/1062/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria">Política</span>
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          El Gobierno propone un nuevo pacto educativo para los
+                          próximos diez años
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        La propuesta busca el consenso entre todas las fuerzas
+                        políticas y plantea cambios estructurales en primaria,
+                        secundaria y FP.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> Ana Pérez &middot;
+                        <i class="bi bi-clock"></i> Hace 3 h
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card horizontal 2 -->
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/1071/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria badge-categoria-oscura"
+                        >Política</span
+                      >
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          Los presidentes autonómicos se reúnen en La Moncloa
+                          para abordar la financiación
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        La reunión llega después de meses de tensiones entre el
+                        Ejecutivo central y varias comunidades autónomas.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> David Moreno &middot;
+                        <i class="bi bi-clock"></i> Hace 5 h
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card horizontal 3 -->
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/1080/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria">Política</span>
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          Bruselas estudia nuevas sanciones tras la última
+                          escalada diplomática
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        El alto representante de la UE para Asuntos Exteriores
+                        convocará una reunión extraordinaria la próxima semana.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> Sara López &middot;
+                        <i class="bi bi-clock"></i> Hace 7 h
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Economía -->
+            <div class="tab-pane fade" id="tab-economia" role="tabpanel">
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/1019/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria">Economía</span>
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          El paro baja en 65.000 personas en el último trimestre
+                          y marca mínimos desde 2008
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        La afiliación a la Seguridad Social crece especialmente
+                        en el sector servicios y la construcción.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> Javier Ortiz &middot;
+                        <i class="bi bi-clock"></i> Hace 4 h
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/1048/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria badge-categoria-oscura"
+                        >Economía</span
+                      >
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          Telefónica firma un acuerdo millonario para desplegar
+                          redes 6G en Latinoamérica
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        La operación supondrá la mayor inversión de la compañía
+                        en la región en la última década.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> Elena Martín &middot;
+                        <i class="bi bi-clock"></i> Hace 6 h
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Cultura -->
+            <div class="tab-pane fade" id="tab-cultura" role="tabpanel">
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/1084/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria">Cultura</span>
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          Pedro Almodóvar prepara su próximo largometraje rodado
+                          entre Madrid y Nueva York
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        El cineasta manchego confirma que volverá a contar con
+                        su productora habitual para el proyecto.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> Irene Castro &middot;
+                        <i class="bi bi-clock"></i> Hace 9 h
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Deportes -->
+            <div class="tab-pane fade" id="tab-deportes" role="tabpanel">
+              <div class="card card-horizontal mb-4 border-0">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="https://picsum.photos/id/106/400/300"
+                      class="img-fluid"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <span class="badge badge-categoria">Deportes</span>
+                      <h5 class="card-title mt-2">
+                        <a href="#" class="text-dark text-decoration-none">
+                          Carlos Alcaraz se proclama campeón en Roma tras una
+                          final de tres sets
+                        </a>
+                      </h5>
+                      <p class="small text-secondary">
+                        El murciano suma su quinto título Masters 1000 y
+                        consolida su posición en lo más alto del ranking ATP.
+                      </p>
+                      <p class="meta small text-muted">
+                        <i class="bi bi-person"></i> Pablo Sánchez &middot;
+                        <i class="bi bi-clock"></i> Hace 1 día
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paginación -->
+          <nav aria-label="Paginación de noticias" class="mt-4">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#"
+                  ><i class="bi bi-chevron-left"></i
+                ></a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#"
+                  ><i class="bi bi-chevron-right"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!--  SIDEBAR  -->
+        <aside class="col-12 col-lg-4">
+          <!-- Card: Lo más leído -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">
+              <i class="bi bi-fire text-danger"></i> Lo más leído
+            </h3>
+            <ol class="list-group list-group-flush lista-leido">
+              <li class="list-group-item d-flex align-items-start">
+                <span class="num-leido">1</span>
+                <a href="#" class="text-dark text-decoration-none">
+                  La cumbre del clima cierra con un acuerdo histórico
+                </a>
+              </li>
+              <li class="list-group-item d-flex align-items-start">
+                <span class="num-leido">2</span>
+                <a href="#" class="text-dark text-decoration-none">
+                  Madrid estrena el primer carril bici subterráneo
+                </a>
+              </li>
+              <li class="list-group-item d-flex align-items-start">
+                <span class="num-leido">3</span>
+                <a href="#" class="text-dark text-decoration-none">
+                  El BCE mantiene los tipos y abre la puerta a una bajada
+                </a>
+              </li>
+              <li class="list-group-item d-flex align-items-start">
+                <span class="num-leido">4</span>
+                <a href="#" class="text-dark text-decoration-none">
+                  Carlos Alcaraz se proclama campeón en Roma
+                </a>
+              </li>
+              <li class="list-group-item d-flex align-items-start">
+                <span class="num-leido">5</span>
+                <a href="#" class="text-dark text-decoration-none">
+                  Almodóvar prepara su próximo largometraje
+                </a>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Card: Barómetro electoral con progress bars -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">
+              <i class="bi bi-bar-chart"></i> Barómetro de mayo
+            </h3>
+            <p class="small text-muted">
+              Intención de voto según el último sondeo del CIS.
+            </p>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold">
+                <span>Partido A</span>
+                <span>32%</span>
+              </div>
+              <div class="progress" style="height: 8px">
+                <div class="progress-bar bg-danger" style="width: 32%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold">
+                <span>Partido B</span>
+                <span>28%</span>
+              </div>
+              <div class="progress" style="height: 8px">
+                <div class="progress-bar bg-primary" style="width: 28%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold">
+                <span>Partido C</span>
+                <span>18%</span>
+              </div>
+              <div class="progress" style="height: 8px">
+                <div class="progress-bar bg-warning" style="width: 18%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold">
+                <span>Partido D</span>
+                <span>14%</span>
+              </div>
+              <div class="progress" style="height: 8px">
+                <div class="progress-bar bg-success" style="width: 14%"></div>
+              </div>
+            </div>
+
+            <p class="small text-muted mt-3 mb-0">
+              <i class="bi bi-info-circle"></i> Encuesta realizada a 2.500
+              personas.
+            </p>
+          </div>
+
+          <!-- Alert Newsletter -->
+          <div class="alert alert-newsletter">
+            <h5 class="mb-3">
+              <i class="bi bi-envelope-paper"></i> Recibe la newsletter
+            </h5>
+            <p class="small mb-3">
+              Las mejores noticias del día directamente en tu correo cada
+              mañana.
+            </p>
+            <form>
+              <input
+                type="email"
+                class="form-control mb-2"
+                placeholder="Tu correo electrónico"
+              />
+              <button type="submit" class="btn btn-alta w-100">
+                Suscribirme
+              </button>
+            </form>
+          </div>
+
+          <!-- Card: Redes sociales con tooltips -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title"><i class="bi bi-share"></i> Síguenos</h3>
+            <p class="small text-muted">No te pierdas ninguna actualización.</p>
+            <div>
+              <a
+                href="#"
+                class="icono-red"
+                data-bs-toggle="tooltip"
+                data-bs-title="Síguenos en Twitter"
+              >
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              <a
+                href="#"
+                class="icono-red"
+                data-bs-toggle="tooltip"
+                data-bs-title="Síguenos en Facebook"
+              >
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="icono-red"
+                data-bs-toggle="tooltip"
+                data-bs-title="Síguenos en Instagram"
+              >
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="icono-red"
+                data-bs-toggle="tooltip"
+                data-bs-title="Síguenos en YouTube"
+              >
+                <i class="bi bi-youtube"></i>
+              </a>
+              <a
+                href="#"
+                class="icono-red"
+                data-bs-toggle="tooltip"
+                data-bs-title="Suscríbete al RSS"
+              >
+                <i class="bi bi-rss"></i>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!--  SECCIÓN: OPINIÓN  -->
+    <section class="container mb-5">
+      <h2 class="titulo-seccion">Opinión</h2>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="card border-0 bg-transparent">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="https://i.pravatar.cc/80?img=12"
+                class="rounded-circle me-3"
+                width="60"
+                height="60"
+                alt="Autor"
+              />
+              <div>
+                <p class="mb-0 fw-bold small">Luis Hernández</p>
+                <p class="text-muted small mb-0">Columnista</p>
+              </div>
+            </div>
+            <h5 class="titulo-serif fw-bold">
+              <a href="#" class="text-dark text-decoration-none">
+                El precio de la vivienda y el silencio incómodo de las
+                instituciones
+              </a>
+            </h5>
+            <p class="small text-secondary">
+              Mientras los jóvenes esperan, la realidad sigue empujando los
+              precios al alza sin freno aparente.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card border-0 bg-transparent">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="https://i.pravatar.cc/80?img=47"
+                class="rounded-circle me-3"
+                width="60"
+                height="60"
+                alt="Autor"
+              />
+              <div>
+                <p class="mb-0 fw-bold small">Carmen Vidal</p>
+                <p class="text-muted small mb-0">Editorial</p>
+              </div>
+            </div>
+            <h5 class="titulo-serif fw-bold">
+              <a href="#" class="text-dark text-decoration-none">
+                Europa ante el espejo: el reto de pensar en común
+              </a>
+            </h5>
+            <p class="small text-secondary">
+              La fragmentación política amenaza con paralizar decisiones que no
+              admiten más retrasos.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card border-0 bg-transparent">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="https://i.pravatar.cc/80?img=33"
+                class="rounded-circle me-3"
+                width="60"
+                height="60"
+                alt="Autor"
+              />
+              <div>
+                <p class="mb-0 fw-bold small">Andrés Pereda</p>
+                <p class="text-muted small mb-0">Análisis</p>
+              </div>
+            </div>
+            <h5 class="titulo-serif fw-bold">
+              <a href="#" class="text-dark text-decoration-none">
+                La inteligencia artificial y el nuevo contrato social
+              </a>
+            </h5>
+            <p class="small text-secondary">
+              Pensar la regulación de la IA es también pensar qué tipo de
+              sociedad queremos ser dentro de diez años.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--  FOOTER  -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <h5 class="titulo-serif text-white">
+              El <em class="text-danger">Diario</em>
+            </h5>
+            <p class="small">
+              Periódico digital independiente fundado en 2014. Información
+              rigurosa, contrastada y al servicio de los lectores.
+            </p>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6>Secciones</h6>
+            <a href="#">Política</a>
+            <a href="#">Economía</a>
+            <a href="#">Internacional</a>
+            <a href="#">Cultura</a>
+            <a href="#">Deportes</a>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6>El Diario</h6>
+            <a href="sobre-nosotros.html">Sobre nosotros</a>
+            <a href="#">Contacto</a>
+            <a href="#">Publicidad</a>
+            <a href="#">Trabaja con nosotros</a>
+          </div>
+          <div class="col-12 col-md-4">
+            <h6>Newsletter</h6>
+            <p class="small">
+              Suscríbete para recibir las noticias más importantes cada mañana.
+            </p>
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Tu correo"
+              />
+              <button class="btn btn-alta">OK</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p class="mb-0">
+            &copy; 2026 El Diario &middot; Todos los derechos reservados
+            &middot; Aviso legal &middot; Política de privacidad
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS bundle (incluye Popper para los dropdowns, tooltips y modales) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Inicializar los tooltips (Bootstrap los requiere por JavaScript) -->
+    <script>
+      // Activar todos los tooltips de la página
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]',
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (el) => new bootstrap.Tooltip(el),
+      );
+    </script>
+  </body>
+</html>

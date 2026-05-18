@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre nosotros – El Diario</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+
+    <!-- BARRA SUPERIOR -->
+    <div class="bg-dark text-secondary py-2 small">
+      <div class="container d-flex justify-content-between align-items-center">
+        <span><i class="bi bi-calendar3 me-1"></i>Viernes, 15 de mayo de 2026 · Edición digital</span>
+        <span class="d-none d-md-block"><i class="bi bi-cloud-sun me-1"></i>Madrid 22ºC <span class="ms-3"><i class="bi bi-newspaper me-1"></i>Año XII · Nº 4.328</span></span>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white border-top border-danger border-3 border-bottom shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-dark text-decoration-none fs-2" href="index.html" style="font-family: 'Playfair Display', serif; letter-spacing: -1px;">
+          <i class="bi bi-newspaper text-danger me-2" style="font-size:2rem;"></i>El <em class="text-danger fw-normal">Diario</em>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSN">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSN">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold text-danger active" href="sobre-nosotros.html">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link text-secondary disabled" aria-disabled="true">Cuenta</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link fw-semibold text-dark dropdown-toggle" href="#" data-bs-toggle="dropdown">Secciones</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Política</a></li>
+                <li><a class="dropdown-item" href="#">Economía</a></li>
+                <li><a class="dropdown-item" href="#">Internacional</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Cultura</a></li>
+                <li><a class="dropdown-item" href="#">Deportes</a></li>
+                <li><a class="dropdown-item" href="#">Tecnología</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex me-lg-3 my-2 my-lg-0" role="search">
+            <input class="form-control me-1" type="search" placeholder="Buscar noticias..." />
+            <button class="btn btn-dark" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+          <div class="d-none d-sm-flex gap-2">
+            <button class="btn btn-outline-dark btn-sm fw-semibold" data-bs-toggle="modal" data-bs-target="#modalLogin">
+              <i class="bi bi-box-arrow-in-right me-1"></i>Log in
+            </button>
+            <a href="registro.html" class="btn btn-danger btn-sm fw-semibold">
+              <i class="bi bi-person-plus me-1"></i>Darse de alta
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MODAL LOGIN -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-0">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title" id="modalLoginLabel" style="font-family:'Playfair Display',serif;">Iniciar sesión</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body p-4">
+            <form>
+              <div class="mb-3">
+                <label for="emailLogin" class="form-label fw-bold">Correo electrónico</label>
+                <input type="email" class="form-control" id="emailLogin" placeholder="ejemplo@correo.com" required />
+              </div>
+              <div class="mb-3">
+                <label for="passLogin" class="form-label fw-bold">Contraseña</label>
+                <input type="password" class="form-control" id="passLogin" placeholder="Tu contraseña" required />
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="recordarme" />
+                <label class="form-check-label" for="recordarme">Recordarme en este dispositivo</label>
+              </div>
+              <button type="submit" class="btn btn-danger w-100 mb-3">Enviar</button>
+              <p class="text-center mb-0 small">¿Aún no tienes cuenta? <a href="registro.html" class="text-danger fw-bold">Créala aquí</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="badge bg-danger px-3 py-2 mb-3" style="letter-spacing:2px; font-size:0.7rem;">DESDE 2014</span>
+            <h1 class="display-5 fw-bold mb-3" style="font-family:'Playfair Display',serif; line-height:1.15;">
+              Periodismo independiente al servicio de la verdad
+            </h1>
+            <p class="lead text-white-50 mb-4">
+              <em>El Diario</em> nació con una sola convicción: que la información rigurosa, libre e independiente es el fundamento de cualquier sociedad democrática.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="registro.html" class="btn btn-danger px-4">Únete a El Diario</a>
+              <a href="#equipo" class="btn btn-outline-light px-4">Conoce el equipo</a>
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block">
+            <img src="https://picsum.photos/seed/redaccion/520/340" class="img-fluid rounded shadow" alt="Redacción de El Diario">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div class="bg-white border-bottom py-4">
+      <div class="container">
+        <div class="row g-3 text-center">
+          <div class="col-6 col-md-3">
+            <p class="display-6 fw-black text-danger mb-0" style="font-family:'Playfair Display',serif; font-weight:900;">12</p>
+            <p class="small text-muted mb-0">Años de historia</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="display-6 fw-black text-danger mb-0" style="font-family:'Playfair Display',serif; font-weight:900;">2,8M</p>
+            <p class="small text-muted mb-0">Lectores mensuales</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="display-6 fw-black text-danger mb-0" style="font-family:'Playfair Display',serif; font-weight:900;">85</p>
+            <p class="small text-muted mb-0">Periodistas en activo</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="display-6 fw-black text-danger mb-0" style="font-family:'Playfair Display',serif; font-weight:900;">14</p>
+            <p class="small text-muted mb-0">Premios de periodismo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-5">
+
+      <!-- BREADCRUMB -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html" class="text-dark text-decoration-none">Inicio</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Sobre nosotros</li>
+        </ol>
+      </nav>
+
+      <!-- MISIÓN / VISIÓN / VALORES -->
+      <div class="border-bottom border-2 border-dark pb-1 mb-4">
+        <h2 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Misión, Visión y Valores</h2>
+      </div>
+
+      <div class="accordion mb-5" id="accordionMision">
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button fw-bold bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#colMision">
+              <i class="bi bi-bullseye text-danger me-2 fs-5"></i> Nuestra Misión
+            </button>
+          </h2>
+          <div id="colMision" class="accordion-collapse collapse show" data-bs-parent="#accordionMision">
+            <div class="accordion-body text-secondary">
+              Proporcionar información veraz, contrastada e independiente que permita a los ciudadanos tomar decisiones informadas. Nos comprometemos a un periodismo libre de presiones políticas o económicas, poniendo siempre el interés público por encima de cualquier otro criterio editorial.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#colVision">
+              <i class="bi bi-eye text-danger me-2 fs-5"></i> Nuestra Visión
+            </button>
+          </h2>
+          <div id="colVision" class="accordion-collapse collapse" data-bs-parent="#accordionMision">
+            <div class="accordion-body text-secondary">
+              Ser el medio de comunicación digital de referencia en España, reconocido por su independencia, su calidad informativa y su capacidad de adaptación a los nuevos tiempos, manteniendo los principios éticos que nos han guiado desde nuestra fundación.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#colValores">
+              <i class="bi bi-heart-fill text-danger me-2 fs-5"></i> Nuestros Valores
+            </button>
+          </h2>
+          <div id="colValores" class="accordion-collapse collapse" data-bs-parent="#accordionMision">
+            <div class="accordion-body">
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <div class="d-flex gap-3 align-items-start p-3 bg-light rounded">
+                    <i class="bi bi-shield-check-fill text-danger fs-4 flex-shrink-0"></i>
+                    <div><strong>Independencia</strong><p class="small text-muted mb-0 mt-1">Sin ataduras políticas ni económicas. Solo con el lector.</p></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-flex gap-3 align-items-start p-3 bg-light rounded">
+                    <i class="bi bi-search text-danger fs-4 flex-shrink-0"></i>
+                    <div><strong>Rigor</strong><p class="small text-muted mb-0 mt-1">Verificamos cada dato antes de publicar. Sin excepciones.</p></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-flex gap-3 align-items-start p-3 bg-light rounded">
+                    <i class="bi bi-people-fill text-danger fs-4 flex-shrink-0"></i>
+                    <div><strong>Diversidad</strong><p class="small text-muted mb-0 mt-1">Voces plurales para una sociedad plural.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUIPO -->
+      <div id="equipo" class="border-bottom border-2 border-dark pb-1 mb-4">
+        <h2 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Nuestro equipo</h2>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm text-center h-100">
+            <img src="https://i.pravatar.cc/300?img=47" class="card-img-top object-fit-cover" style="height:200px;" alt="Directora">
+            <div class="card-body">
+              <h6 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Elena Rodríguez</h6>
+              <span class="badge bg-danger mt-1 mb-2" style="font-size:0.65rem; letter-spacing:1px;">DIRECTORA</span>
+              <p class="small text-muted mb-2">Periodista con 20 años de experiencia. Premio Nacional de Periodismo 2021.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm text-center h-100">
+            <img src="https://i.pravatar.cc/300?img=12" class="card-img-top object-fit-cover" style="height:200px;" alt="Editor jefe">
+            <div class="card-body">
+              <h6 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Marcos Álvarez</h6>
+              <span class="badge bg-dark mt-1 mb-2" style="font-size:0.65rem; letter-spacing:1px;">EDITOR JEFE</span>
+              <p class="small text-muted mb-2">Especializado en política internacional. Ex corresponsal en Bruselas y Nueva York.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm text-center h-100">
+            <img src="https://i.pravatar.cc/300?img=32" class="card-img-top object-fit-cover" style="height:200px;" alt="Jefa de tecnología">
+            <div class="card-body">
+              <h6 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Sara Méndez</h6>
+              <span class="badge bg-danger mt-1 mb-2" style="font-size:0.65rem; letter-spacing:1px;">JEFA DE TECNOLOGÍA</span>
+              <p class="small text-muted mb-2">Ingeniera y periodista. Pionera en periodismo de datos e investigación digital.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-secondary"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm text-center h-100">
+            <img src="https://i.pravatar.cc/300?img=33" class="card-img-top object-fit-cover" style="height:200px;" alt="Jefe de cultura">
+            <div class="card-body">
+              <h6 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">David Fuentes</h6>
+              <span class="badge bg-dark mt-1 mb-2" style="font-size:0.65rem; letter-spacing:1px;">JEFE DE CULTURA</span>
+              <p class="small text-muted mb-2">Crítico literario y cinematográfico. Colaborador habitual en radio y televisión.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HISTORIA -->
+      <div class="border-bottom border-2 border-dark pb-1 mb-4">
+        <h2 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Nuestra historia</h2>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-7">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-transparent px-0 py-3 d-flex gap-3">
+              <span class="badge bg-dark fs-6 flex-shrink-0 align-self-start mt-1 px-3">2014</span>
+              <div>
+                <strong>Fundación del periódico</strong>
+                <p class="small text-muted mb-0 mt-1">Manuel Rodríguez funda <em>El Diario</em> en Madrid como proyecto de periodismo independiente nativo digital con un equipo inicial de ocho personas.</p>
+              </div>
+            </li>
+            <li class="list-group-item bg-transparent px-0 py-3 d-flex gap-3">
+              <span class="badge bg-dark fs-6 flex-shrink-0 align-self-start mt-1 px-3">2017</span>
+              <div>
+                <strong>Primer millón de lectores</strong>
+                <p class="small text-muted mb-0 mt-1">Tres años después del lanzamiento, El Diario alcanza el millón de lectores mensuales únicos y amplía la redacción a 40 personas.</p>
+              </div>
+            </li>
+            <li class="list-group-item bg-transparent px-0 py-3 d-flex gap-3">
+              <span class="badge bg-danger fs-6 flex-shrink-0 align-self-start mt-1 px-3">2021</span>
+              <div>
+                <strong>Premio Nacional de Periodismo</strong>
+                <p class="small text-muted mb-0 mt-1">El Diario recibe el Premio Nacional de Periodismo por su cobertura de investigación sobre corrupción urbanística, consolidándose como referente del sector.</p>
+              </div>
+            </li>
+            <li class="list-group-item bg-transparent px-0 py-3 d-flex gap-3">
+              <span class="badge bg-danger fs-6 flex-shrink-0 align-self-start mt-1 px-3">2026</span>
+              <div>
+                <strong>Hoy: líderes digitales</strong>
+                <p class="small text-muted mb-0 mt-1">Con 2,8 millones de lectores mensuales y 85 periodistas en activo, El Diario es hoy uno de los medios nativos digitales más influyentes de España.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card bg-dark text-white border-0 h-100">
+            <div class="card-body p-4">
+              <h6 class="fw-bold mb-4 text-center text-uppercase" style="letter-spacing:2px; font-size:0.8rem;">Nuestras áreas de cobertura</h6>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Política & Internacional</span><span class="text-danger fw-bold">92%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:92%;"></div></div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Economía & Empresa</span><span class="text-danger fw-bold">87%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:87%;"></div></div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Deportes</span><span class="text-danger fw-bold">95%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:95%;"></div></div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1"><span>Cultura & Sociedad</span><span class="text-danger fw-bold">80%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:80%;"></div></div>
+              </div>
+              <div class="mb-0">
+                <div class="d-flex justify-content-between small mb-1"><span>Tecnología & Ciencia</span><span class="text-danger fw-bold">75%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-danger" style="width:75%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREMIOS -->
+      <div class="border-bottom border-2 border-dark pb-1 mb-4">
+        <h2 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Reconocimientos</h2>
+      </div>
+
+      <div class="row g-3 mb-5">
+        <div class="col-md-4">
+          <div class="card border-0 bg-white shadow-sm p-3 h-100">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-trophy-fill text-warning fs-3 flex-shrink-0"></i>
+              <div>
+                <strong>Premio Nacional de Periodismo 2021</strong>
+                <p class="small text-muted mb-0 mt-1">Concedido por la cobertura del reportaje de investigación sobre corrupción urbanística.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 bg-white shadow-sm p-3 h-100">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-star-fill text-warning fs-3 flex-shrink-0"></i>
+              <div>
+                <strong>Mejor Medio Digital España 2023</strong>
+                <p class="small text-muted mb-0 mt-1">Reconocimiento de la Asociación de Prensa de Madrid por innovación y calidad periodística.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 bg-white shadow-sm p-3 h-100">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-award-fill text-warning fs-3 flex-shrink-0"></i>
+              <div>
+                <strong>European Press Award 2024</strong>
+                <p class="small text-muted mb-0 mt-1">Por la investigación sobre cambio climático y su impacto en la agricultura española.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACTO -->
+      <div class="border-bottom border-2 border-dark pb-1 mb-4">
+        <h2 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Contacto</h2>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-5">
+          <h5 class="fw-semibold mb-3" style="font-family:'Playfair Display',serif;">¿Tienes una historia para nosotros?</h5>
+          <p class="text-muted small">Si tienes información de interés público, ponte en contacto con nuestra redacción de forma confidencial.</p>
+          <ul class="list-unstyled small">
+            <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-geo-alt-fill text-danger"></i><span>Calle de la Prensa, 42 · Madrid, 28013</span></li>
+            <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-telephone-fill text-danger"></i><span>+34 91 456 78 90</span></li>
+            <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-envelope-fill text-danger"></i><span>redaccion@eldiario.es</span></li>
+            <li class="d-flex align-items-center gap-2"><i class="bi bi-clock-fill text-danger"></i><span>Lunes a viernes, 9:00 – 20:00</span></li>
+          </ul>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="text-secondary fs-5" data-bs-toggle="tooltip" data-bs-title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-secondary fs-5" data-bs-toggle="tooltip" data-bs-title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-secondary fs-5" data-bs-toggle="tooltip" data-bs-title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-secondary fs-5" data-bs-toggle="tooltip" data-bs-title="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold small">Nombre</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Tu nombre">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold small">Correo electrónico</label>
+                    <input type="email" class="form-control form-control-sm" placeholder="tu@correo.com">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold small">Asunto</label>
+                    <select class="form-select form-select-sm">
+                      <option>Enviar una filtración</option>
+                      <option>Corrección de noticia</option>
+                      <option>Publicidad</option>
+                      <option>Trabaja con nosotros</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold small">Mensaje</label>
+                    <textarea class="form-control form-control-sm" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-dark btn-sm px-4">
+                      <i class="bi bi-send me-1"></i>Enviar mensaje
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA SUSCRIPCIÓN -->
+      <div class="alert bg-dark text-white border-0 d-flex align-items-center gap-3 p-4" role="alert">
+        <i class="bi bi-newspaper text-danger fs-2 flex-shrink-0"></i>
+        <div>
+          <strong class="fs-5" style="font-family:'Playfair Display',serif;">Apoya el periodismo independiente</strong>
+          <p class="mb-0 small text-white-50 mt-1">Con tu suscripción nos ayudas a seguir haciendo periodismo libre y riguroso. Sin ataduras.</p>
+        </div>
+        <a href="registro.html" class="btn btn-danger ms-auto flex-shrink-0">Suscribirme</a>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-secondary py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <h5 class="text-white fw-bold" style="font-family:'Playfair Display',serif;">El <em class="text-danger fw-normal">Diario</em></h5>
+            <p class="small">Periódico digital independiente fundado en 2014. Información rigurosa, contrastada y al servicio de los lectores.</p>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6 class="text-white" style="font-family:'Playfair Display',serif;">Secciones</h6>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Política</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Economía</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Internacional</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Cultura</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Deportes</a>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6 class="text-white" style="font-family:'Playfair Display',serif;">El Diario</h6>
+            <a href="sobre-nosotros.html" class="text-secondary text-decoration-none d-block small py-1">Sobre nosotros</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Contacto</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Publicidad</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Trabaja con nosotros</a>
+          </div>
+          <div class="col-12 col-md-4">
+            <h6 class="text-white" style="font-family:'Playfair Display',serif;">Newsletter</h6>
+            <p class="small">Suscríbete para recibir las noticias más importantes cada mañana.</p>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Tu correo" />
+              <button class="btn btn-danger">OK</button>
+            </div>
+          </div>
+        </div>
+        <hr class="border-secondary mt-4" />
+        <p class="text-center small mb-0">© 2026 El Diario · Todos los derechos reservados · Aviso legal · Política de privacidad</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      tooltips.forEach(el => new bootstrap.Tooltip(el));
+    </script>
+  </body>
+</html>

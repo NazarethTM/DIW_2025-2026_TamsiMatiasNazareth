@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Darse de alta – El Diario</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+
+    <!-- BARRA SUPERIOR -->
+    <div class="bg-dark text-secondary py-2 small">
+      <div class="container d-flex justify-content-between align-items-center">
+        <span><i class="bi bi-calendar3 me-1"></i>Viernes, 15 de mayo de 2026 · Edición digital</span>
+        <span class="d-none d-md-block"><i class="bi bi-cloud-sun me-1"></i>Madrid 22ºC <span class="ms-3"><i class="bi bi-newspaper me-1"></i>Año XII · Nº 4.328</span></span>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white border-top border-danger border-3 border-bottom shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-dark text-decoration-none fs-2" href="index.html" style="font-family: 'Playfair Display', serif; letter-spacing: -1px;">
+          <i class="bi bi-newspaper text-danger me-2" style="font-size:2rem;"></i>El <em class="text-danger fw-normal">Diario</em>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarReg" aria-controls="navbarReg" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarReg">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="sobre-nosotros.html">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link text-secondary disabled" aria-disabled="true">Cuenta</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link fw-semibold text-dark dropdown-toggle" href="#" data-bs-toggle="dropdown">Secciones</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Política</a></li>
+                <li><a class="dropdown-item" href="#">Economía</a></li>
+                <li><a class="dropdown-item" href="#">Internacional</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Cultura</a></li>
+                <li><a class="dropdown-item" href="#">Deportes</a></li>
+                <li><a class="dropdown-item" href="#">Tecnología</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex me-lg-3 my-2 my-lg-0" role="search">
+            <input class="form-control me-1" type="search" placeholder="Buscar noticias..." />
+            <button class="btn btn-dark" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+          <div class="d-none d-sm-flex gap-2">
+            <button class="btn btn-outline-dark btn-sm fw-semibold" data-bs-toggle="modal" data-bs-target="#modalLogin">
+              <i class="bi bi-box-arrow-in-right me-1"></i>Log in
+            </button>
+            <a href="registro.html" class="btn btn-danger btn-sm fw-semibold">
+              <i class="bi bi-person-plus me-1"></i>Darse de alta
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MODAL LOGIN -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-0">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title" id="modalLoginLabel" style="font-family:'Playfair Display',serif;">Iniciar sesión</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body p-4">
+            <form>
+              <div class="mb-3">
+                <label for="emailLogin" class="form-label fw-bold">Correo electrónico</label>
+                <input type="email" class="form-control" id="emailLogin" placeholder="ejemplo@correo.com" required />
+              </div>
+              <div class="mb-3">
+                <label for="passLogin" class="form-label fw-bold">Contraseña</label>
+                <input type="password" class="form-control" id="passLogin" placeholder="Tu contraseña" required />
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="recordarme" />
+                <label class="form-check-label" for="recordarme">Recordarme en este dispositivo</label>
+              </div>
+              <button type="submit" class="btn btn-danger w-100 mb-3">Enviar</button>
+              <p class="text-center mb-0 small">¿Aún no tienes cuenta? <a href="registro.html" class="text-danger fw-bold">Créala aquí</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="container mt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html" class="text-dark text-decoration-none">Inicio</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Darse de alta</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- FORMULARIO DE REGISTRO -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+          <!-- Cabecera -->
+          <div class="border-bottom border-2 border-dark pb-2 mb-4">
+            <h1 class="fw-bold mb-0" style="font-family:'Playfair Display',serif;">Crear nueva cuenta</h1>
+            <p class="text-secondary mt-1 mb-0">Únete a <strong>El Diario</strong> y accede a contenido exclusivo para suscriptores.</p>
+          </div>
+
+          <form id="formRegistro" novalidate>
+
+            <!-- DATOS PERSONALES -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-header bg-dark text-white fw-semibold">
+                <i class="bi bi-person-fill me-2"></i>Datos personales
+              </div>
+              <div class="card-body p-4">
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold">Nombre <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="María" required />
+                    <div class="invalid-feedback">Introduce tu nombre.</div>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold">Primer apellido <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="García" required />
+                    <div class="invalid-feedback">Introduce tu primer apellido.</div>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold">Segundo apellido</label>
+                    <input type="text" class="form-control" placeholder="López" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Género</label>
+                    <select class="form-select">
+                      <option value="">Prefiero no indicarlo</option>
+                      <option>Mujer</option>
+                      <option>Hombre</option>
+                      <option>No binario</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DIRECCIÓN -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-header bg-dark text-white fw-semibold">
+                <i class="bi bi-geo-alt-fill me-2"></i>Dirección
+              </div>
+              <div class="card-body p-4">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Calle y número <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Calle Mayor, 15, 2ºA" required />
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label fw-semibold">Ciudad <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Madrid" required />
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label fw-semibold">Código postal <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="28001" maxlength="5" required />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold">País</label>
+                    <select class="form-select">
+                      <option selected>España</option>
+                      <option>Portugal</option>
+                      <option>Francia</option>
+                      <option>Italia</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTACTO Y ACCESO -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-header bg-dark text-white fw-semibold">
+                <i class="bi bi-envelope-fill me-2"></i>Contacto y acceso
+              </div>
+              <div class="card-body p-4">
+                <div class="row g-3">
+                  <div class="col-md-7">
+                    <label class="form-label fw-semibold">Correo electrónico <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-dark text-white border-dark"><i class="bi bi-envelope"></i></span>
+                      <input type="email" class="form-control" placeholder="tu@correo.com" required />
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label fw-semibold">Teléfono</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-dark text-white border-dark"><i class="bi bi-telephone"></i></span>
+                      <input type="tel" class="form-control" placeholder="+34 600 000 000" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Nueva contraseña <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-dark text-white border-dark"><i class="bi bi-lock"></i></span>
+                      <input type="password" class="form-control" placeholder="Mínimo 8 caracteres" required />
+                    </div>
+                    <div class="form-text">Mínimo 8 caracteres, 1 mayúscula y 1 número.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Confirmar contraseña <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-dark text-white border-dark"><i class="bi bi-lock-fill"></i></span>
+                      <input type="password" class="form-control" placeholder="Repite tu contraseña" required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUSCRIPCIÓN E INTERESES -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-header bg-dark text-white fw-semibold">
+                <i class="bi bi-star-fill me-2"></i>Suscripción e intereses
+              </div>
+              <div class="card-body p-4">
+                <div class="row g-3">
+                  <div class="col-md-5">
+                    <label class="form-label fw-semibold">Tipo de suscripción</label>
+                    <select class="form-select">
+                      <option value="gratis">Gratuita – acceso básico</option>
+                      <option value="premium">Premium · 4,99 €/mes</option>
+                      <option value="anual">Anual · 49,99 €/año</option>
+                    </select>
+                  </div>
+                  <div class="col-md-7">
+                    <label class="form-label fw-semibold">Temas de interés</label>
+                    <div class="d-flex flex-wrap gap-3">
+                      <div class="form-check"><input class="form-check-input" type="checkbox" id="iPolitica"><label class="form-check-label" for="iPolitica">Política</label></div>
+                      <div class="form-check"><input class="form-check-input" type="checkbox" id="iEconomia"><label class="form-check-label" for="iEconomia">Economía</label></div>
+                      <div class="form-check"><input class="form-check-input" type="checkbox" id="iDeporte"><label class="form-check-label" for="iDeporte">Deportes</label></div>
+                      <div class="form-check"><input class="form-check-input" type="checkbox" id="iCultura"><label class="form-check-label" for="iCultura">Cultura</label></div>
+                      <div class="form-check"><input class="form-check-input" type="checkbox" id="iTec"><label class="form-check-label" for="iTec">Tecnología</label></div>
+                      <div class="form-check"><input class="form-check-input" type="checkbox" id="iCiencia"><label class="form-check-label" for="iCiencia">Ciencia</label></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TÉRMINOS Y ENVÍO -->
+            <div class="mb-4">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="terminos" required />
+                <label class="form-check-label" for="terminos">
+                  Acepto los <a href="#" class="text-danger">Términos y Condiciones</a> y la <a href="#" class="text-danger">Política de Privacidad</a> <span class="text-danger">*</span>
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="newsletter" />
+                <label class="form-check-label" for="newsletter">Quiero recibir el boletín diario de noticias</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="comercial" />
+                <label class="form-check-label" for="comercial">Acepto comunicaciones comerciales de El Diario y sus colaboradores</label>
+              </div>
+            </div>
+
+            <div class="d-grid gap-2 col-md-6">
+              <button type="button" class="btn btn-danger btn-lg fw-bold" id="btnAlta">
+                <i class="bi bi-person-check-fill me-2"></i>Darse de alta
+              </button>
+              <a href="index.html" class="btn btn-outline-secondary">Cancelar y volver</a>
+            </div>
+
+          </form>
+
+          <p class="mt-3 small text-muted">¿Ya tienes cuenta? <a href="#" class="text-danger fw-bold" data-bs-toggle="modal" data-bs-target="#modalLogin">Inicia sesión</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOAST DE CONFIRMACIÓN -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+      <div id="toastAlta" class="toast text-white bg-success border-0" role="alert" aria-live="assertive">
+        <div class="toast-header bg-success text-white border-0">
+          <i class="bi bi-check-circle-fill me-2"></i>
+          <strong class="me-auto">Registro completado</strong>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+          ¡Bienvenido/a a <strong>El Diario</strong>! Tu cuenta ha sido creada correctamente. Revisa tu correo para confirmarla.
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-secondary py-5 mt-4">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <h5 class="text-white fw-bold" style="font-family:'Playfair Display',serif;">El <em class="text-danger fw-normal">Diario</em></h5>
+            <p class="small">Periódico digital independiente fundado en 2014. Información rigurosa, contrastada y al servicio de los lectores.</p>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6 class="text-white" style="font-family:'Playfair Display',serif;">Secciones</h6>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Política</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Economía</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Internacional</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Cultura</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Deportes</a>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6 class="text-white" style="font-family:'Playfair Display',serif;">El Diario</h6>
+            <a href="sobre-nosotros.html" class="text-secondary text-decoration-none d-block small py-1">Sobre nosotros</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Contacto</a>
+            <a href="#" class="text-secondary text-decoration-none d-block small py-1">Publicidad</a>
+          </div>
+          <div class="col-12 col-md-4">
+            <h6 class="text-white" style="font-family:'Playfair Display',serif;">Newsletter</h6>
+            <p class="small">Suscríbete para recibir las noticias más importantes cada mañana.</p>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Tu correo" />
+              <button class="btn btn-danger">OK</button>
+            </div>
+          </div>
+        </div>
+        <hr class="border-secondary mt-4" />
+        <p class="text-center small mb-0">© 2026 El Diario · Todos los derechos reservados · Aviso legal · Política de privacidad</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById('btnAlta').addEventListener('click', function () {
+        const toast = new bootstrap.Toast(document.getElementById('toastAlta'), { delay: 6000 });
+        toast.show();
+      });
+      const tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      tooltips.forEach(el => new bootstrap.Tooltip(el));
+    </script>
+  </body>
+</html>
